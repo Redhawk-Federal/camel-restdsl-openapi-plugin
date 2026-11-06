@@ -62,14 +62,14 @@
 
   <distributionManagement>
     <repository>
-      <id>sonatype-ossrh</id>
-      <name>maven-releases</name>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <id>github</id>
+      <name>GitHub Redhawk-Federal Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/Redhawk-Federal/camel-restdsl-openapi-plugin</url>
     </repository>
     <snapshotRepository>
-      <id>ms3-nexus</id>
-      <name>maven-snapshots</name>
-      <url>https://maven.ms3-inc.com/repository/maven-snapshots/</url>
+      <id>github</id>
+      <name>GitHub Redhawk-Federal Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/Redhawk-Federal/camel-restdsl-openapi-plugin</url>
     </snapshotRepository>
   </distributionManagement>
 
