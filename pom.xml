@@ -54,22 +54,22 @@
   </developers>
 
   <scm>
-    <connection>scm:git:https://github.com/MS3Inc/camel-restdsl-openapi-plugin.git</connection>
-    <developerConnection>scm:git:https://github.com/MS3Inc/camel-restdsl-openapi-plugin.git</developerConnection>
-    <url>https://github.com/MS3Inc/camel-restdsl-openapi-plugin</url>
+    <connection>scm:git:https://github.com/Redhawk-Federal/camel-restdsl-openapi-plugin.git</connection>
+    <developerConnection>scm:git:https://github.com/Redhawk-Federal/camel-restdsl-openapi-plugin.git</developerConnection>
+    <url>https://github.com/Redhawk-Federal/camel-restdsl-openapi-plugin</url>
     <tag>HEAD</tag>
   </scm>
 
   <distributionManagement>
     <repository>
-      <id>sonatype-ossrh</id>
-      <name>maven-releases</name>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <id>github</id>
+      <name>GitHub Redhawk-Federal Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/Redhawk-Federal/camel-restdsl-openapi-plugin</url>
     </repository>
     <snapshotRepository>
-      <id>ms3-nexus</id>
-      <name>maven-snapshots</name>
-      <url>https://maven.ms3-inc.com/repository/maven-snapshots/</url>
+      <id>github</id>
+      <name>GitHub Redhawk-Federal Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/Redhawk-Federal/camel-restdsl-openapi-plugin</url>
     </snapshotRepository>
   </distributionManagement>
 
@@ -232,17 +232,6 @@
           <localCheckout>true</localCheckout>
           <releaseProfiles>release</releaseProfiles>
           <tagNameFormat>@{project.version}</tagNameFormat>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.sonatype.plugins</groupId>
-        <artifactId>nexus-staging-maven-plugin</artifactId>
-        <version>1.6.8</version>
-        <extensions>true</extensions>
-        <configuration>
-          <serverId>sonatype-ossrh</serverId>
-          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-          <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
       </plugin>
       <plugin>
