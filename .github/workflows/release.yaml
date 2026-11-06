@@ -23,6 +23,20 @@ jobs:
           server-username: GITHUB_ACTOR
           server-password: GITHUB_TOKEN
 
+      - name: Check the pom version matches the release tag
+        run: |
+          VERSION=$(./mvnw --batch-mode --quiet help:evaluate -Dexpression=project.version -DforceStdout)
+          TAG="${GITHUB_REF_NAME#v}"
+          echo "pom version: ${VERSION}, release tag: ${GITHUB_REF_NAME}"
+          if [[ "${VERSION}" == *-SNAPSHOT ]]; then
+            echo "::error::The pom version ${VERSION} is a SNAPSHOT. Release from a tag whose pom has a final version."
+            exit 1
+          fi
+          if [[ "${VERSION}" != "${TAG}" ]]; then
+            echo "::error::The pom version ${VERSION} does not match the release tag ${GITHUB_REF_NAME}."
+            exit 1
+          fi
+
       - name: Publish to GitHub Packages
         run: ./mvnw --batch-mode --no-transfer-progress deploy -DskipTests -Dlicense.skip=true
         env:
