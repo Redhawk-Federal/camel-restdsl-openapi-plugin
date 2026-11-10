@@ -75,7 +75,7 @@ public class GeneratedCodeCompilesTest {
     }
 
     private void assertCompiles(String specPath, String className) throws Exception {
-        RoutesCreator creator = new RoutesCreator(specPath, null, "com.ms3-inc.tavros");
+        RoutesCreator creator = new RoutesCreator(specPath, null, "io.tavros");
         List<Triple<String, String, Operation>> ops = creator.generateOperationInfoList();
 
         String restDsl = stripValidationLine(creator.generateRoutesGeneratedCode(ops).toString());
