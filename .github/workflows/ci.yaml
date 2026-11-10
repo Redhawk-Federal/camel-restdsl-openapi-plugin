@@ -39,7 +39,19 @@ jobs:
           server-id: github
           server-username: GITHUB_ACTOR
           server-password: GITHUB_TOKEN
+      - name: Check the pom version is a SNAPSHOT
+        id: version
+        run: |
+          VERSION=$(./mvnw --batch-mode --quiet help:evaluate -Dexpression=project.version -DforceStdout)
+          echo "pom version: ${VERSION}"
+          if [[ "${VERSION}" == *-SNAPSHOT ]]; then
+            echo "snapshot=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Final versions are published by the release workflow, skipping the snapshot deploy."
+            echo "snapshot=false" >> "$GITHUB_OUTPUT"
+          fi
       - name: Deploy snapshot to GitHub Packages
+        if: steps.version.outputs.snapshot == 'true'
         run: ./mvnw --batch-mode --no-transfer-progress -Dlicense.skip=true -DskipTests deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
