@@ -37,7 +37,7 @@ import static org.junit.Assert.fail;
 public class OpenApiMojoTest
 {
     private final static Logger LOGGER = Logger.getLogger(OpenApiMojoTest.class.getName());
-    private final String GROUP_ID = "com.ms3-inc.tavros";
+    private final String GROUP_ID = "io.tavros";
     private final String YAML = "target/test-classes/oas-petstore.yaml";
     private final String YAML_31 = "target/test-classes/oas-31-sample.yaml";
 
