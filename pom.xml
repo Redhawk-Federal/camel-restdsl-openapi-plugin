@@ -74,7 +74,9 @@
   </distributionManagement>
 
   <prerequisites>
-    <maven>${maven.version}</maven>
+    <!-- Lowest Maven the plugin runs on (tested from 3.6.3 to 3.9.x). It is not maven.version,
+         which is the Maven API the plugin is compiled against. -->
+    <maven>3.6.3</maven>
   </prerequisites>
 
   <properties>
